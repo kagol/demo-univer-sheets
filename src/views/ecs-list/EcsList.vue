@@ -2,7 +2,6 @@
 import { ref } from 'vue';
 import { TinyActionMenu, TinyContainer, Modal, TinyButton } from '@opentiny/vue';
 import Header from '../../layouts/header.vue';
-import { randomTableData } from './ecs-data';
 
 const options = ref([
   {
@@ -80,13 +79,18 @@ const options = ref([
   }
 ]);
 
+const { data: tableData } = defineProps({
+  data: {
+    type: Array,
+    default: () => []
+  }
+})
+
 const handleItemClick = (item: any) => {
   if (item.itemData.label === '变更规格') {
     console.log('变更规格====');
   }
 };
-
-const tableData = ref(randomTableData);
 
 const copy = async (text) => {
   await navigator.clipboard.writeText(text);
@@ -96,7 +100,6 @@ const copy = async (text) => {
 const emit = defineEmits(['advancedBuy'])
 
 const handleAdvancedBuy = () => {
-  console.log('高级购买');
   emit('advancedBuy')
 }
 </script>

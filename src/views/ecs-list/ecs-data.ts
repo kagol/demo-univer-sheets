@@ -8,14 +8,26 @@ function randomUUID() {
   });
 }
 
+function randomUUIDEcs() {
+  return Math.random().toString(36).substring(2, 6);
+}
+
 const defaultTableData = numbers.map(() => {
   return {
-    name: 'ecs-' + randomUUID(), id: randomUUID(),
-    monitor: '', security: '安全',
-    status: '运行中', availableArea: '可用区1',
-    spec: '1vCPUs | 1GiB | t6.small.1', image: 'Ubuntu 25.04 server 64bit', os: 'Linux',
-    publicIp: '0.0.0.0', privateIp: '192.168.0.1',
-    billingMode: '按需计费', tag: '可用', createTime: '2025/07/01 11:11:00 GMT+08:00 创建'
+    name: 'ecs-' + randomUUIDEcs(),
+    id: randomUUID(),
+    monitor: '',
+    security: '安全',
+    status: '运行中',
+    availableArea: '可用区1',
+    spec: '1vCPUs | 1GiB | t6.small.1',
+    image: 'Ubuntu 25.04 server 64bit',
+    os: 'Linux',
+    publicIp: '0.0.0.0',
+    privateIp: '192.168.0.1',
+    billingMode: '按需计费',
+    tag: '可用',
+    createTime: '2025/07/01 11:11:00 GMT+08:00 创建'
   }
 })
 
